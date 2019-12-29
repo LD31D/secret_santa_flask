@@ -5,19 +5,18 @@ from secret_santa import return_santa_list
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def main():
+	return render_template(
+		'index.html', people_list=None
+	)
 
-	if request.method == 'GET':
 
-		return render_template(
-			'index.html', people_list=None
-		)
 
-	else:
-
-		return render_template(
-			'index.html', 
+@app.route('/get-list/', methods=['POST'])
+def get_list():
+	return render_template(
+			'list.html', 
 			people_list=return_santa_list(request.form['people_list'].split('\n'))
 		)
 
