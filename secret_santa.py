@@ -8,10 +8,14 @@ def return_santa_list(people_list):
 	print(people_list)
 
 	if len(people_list) <= 1:
+		print(1)
 		return None
 
-	if people_list != list(set(people_list)):
+	if len(people_list) != len(set(people_list)):
+		print(2)
 		return None
+
+	print(3)
 
 	senders = []
 	recipients = []
