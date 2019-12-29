@@ -13,8 +13,12 @@ def return_santa_list(people_list):
 	if people_list != list(set(people_list)):
 		return None
 
-	senders = people_list
-	recipients = people_list
+	senders = []
+	recipients = []
+
+	for element in people_list:
+		senders.append(element)
+		recipients.append(element)
 
 	print(senders)
 	print(recipients)
@@ -27,7 +31,6 @@ def return_santa_list(people_list):
 			recipient = choice(recipients)
 
 			if recipient != sender:
-				recipients.remove(recipient)
 				break
 
 			else:
@@ -39,5 +42,8 @@ def return_santa_list(people_list):
 		}
 
 		result.append(couple)
+		recipients.remove(recipient)
+
+	print(people_list)
 
 	return result
