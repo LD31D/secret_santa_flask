@@ -19,61 +19,48 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-3">
+
+			<div class="col-md-4">
+				
+			</div>
+
+			<div class="col-md-4">
 
 				<div class="text-center mx-md-3 mb-2">
 
 					<div class="card" style="width: 18rem;">
 
-					  <img src="{{ url_for("static", filename="santa.png") }}" class="card-img-top">
+						<img src="{{ url_for("static", filename="santa.png") }}" class="card-img-top">
 
-					  <div class="card-body">
+							<div class="card-body">
 
-					    <h5 class="card-title">Secret Santa</h5>
+							    <h5 class="card-title">Secret Santa</h5>
 
-					    <p class="card-text">Insert the initials of friends or colleagues and find out who will give someone a gift this year!</p>
+							    <p class="card-text">Insert the initials of friends or colleagues and find out who will give someone a gift this year!</p>
 
-					   	<form method="post" action="/">
+							   	<form method="post" action="/get-list/">
 
-					   		<div class="form-group">
-							    <textarea class="form-control" rows="3" name="people_list"></textarea>
+							   		<div class="form-group">
+									    <textarea class="form-control" rows="3" name="people_list"></textarea>
+									</div>
+
+							   		<button type="submit" class="btn btn-primary">Submit</button>
+
+							   	</form>
+
 							</div>
-
-					   		<button type="submit" class="btn btn-primary">Submit</button>
-
-					   	</form>
-
-					  </div>
 					</div>
 
 				</div>
 
 			</div>
 
-			<div class="col-md-9">
-
-				{% if people_list != None %}
-
-					<div class="text-center mx-md-3 mb-2">
-						
-						<ul class="list-group">
-
-						  	<li class="list-group-item active mb-2">
-						  		Secret Santa
-						  	</li>
-							
-							{% for human in people_list %}
-						  		<li class="list-group-item">{{ human['sender'] }} ---> {{ human['recipient'] }}</li>
-							{% endfor %}
-
-						</ul>
-
-					</div>
-
-				{% endif %}
-
+			<div class="col-md-4">
+				
 			</div>
+
 		</div>
+
 	</div>
 </body>
 </html>
