@@ -26,5 +26,10 @@ def page_not_found(error):
 	return redirect('/')
 
 
+@app.errorhandler(405)
+def page_not_found(error):
+	return redirect('/')
+
+
 if __name__ == '__main__':
 	app.run()
